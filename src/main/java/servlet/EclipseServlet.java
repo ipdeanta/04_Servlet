@@ -88,15 +88,19 @@ public class EclipseServlet extends HttpServlet {
 //		response.sendRedirect(String url): redireccion a otra pagina (sin codigo, porque el cod. asociado 302)		
 		
 //		Redirecciones:
+		
 // 		- indirecta (manda una respuesta), utiliza siempre GET:
 //		response.sendRedirect("URL");
-// 		- directa (reenvia la peticion), solo dentro de la aplicacion, GET o POST segun sea la peticion original, permite añadir parametros
-//		request.setAttribute("otro", "parametro insertado desde MainController");
-//		request.getRequestDispatcher("/servlet").forward(request, response);
+		
+// 		- directa (reenvia la peticion), solo dentro de la aplicacion, GET o POST segun sea la peticion original, permite el paso de datos como atributos
+//		request.setAttribute("otro", "valor insertado desde EclipseServlet");
+//		request.getRequestDispatcher("/NetbeansServlet").forward(request, response);
+		
+		System.out.println("param1=" + request.getParameter("param1"));
 		
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		PrintWriter out = response.getWriter();
 		Map<String, String[]> parameterMap = request.getParameterMap();
+		PrintWriter out = response.getWriter();
 		printResponse(out, parameterMap);
 		out.close();
 	}
@@ -114,10 +118,10 @@ public class EclipseServlet extends HttpServlet {
 		PrintWriter res = out;
 		
 		res.println("<html>");
-		res.println("<title>Servlet de pruebas :)</title>");
+		res.println("<title>Servlet de pruebas</title>");
 		res.println("<body>");
 		res.println("<div>Hola Mundo (desde " + this.getClass().getSimpleName() +")</div>");
-		parameterMap.keySet().forEach(x -> res.println("<div>Parámetro " + x + " = " + String.join(",", parameterMap.get(x)) +"</div>"));
+		parameterMap.keySet().forEach(x -> res.println("<div>Par&aacute;metro " + x + " = " + String.join(",", parameterMap.get(x)) +"</div>"));
 		res.println("</body>");
 		res.println("</html>");
 		
