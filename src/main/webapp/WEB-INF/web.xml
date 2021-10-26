@@ -3,7 +3,7 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
-	<display-name>03_ServletTest</display-name>
+	<display-name>04_ServletTest</display-name>
 	
 	<!-- ServletMapping -->
 	<context-param>
@@ -14,7 +14,7 @@
 	<!-- ServletMapping -->
 	<servlet>
         <servlet-name>NetbeansServlet</servlet-name>
-        <servlet-class>servlet.NetbeansServlet</servlet-class>
+        <servlet-class>app.servlet.NetbeansServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>NetbeansServlet</servlet-name>
