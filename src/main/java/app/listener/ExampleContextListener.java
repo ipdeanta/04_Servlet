@@ -1,4 +1,4 @@
-package listener;
+package app.listener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,8 +12,8 @@ import org.apache.log4j.Logger;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 
-import jobs.JobScheduler;
-import jobs.SimpleFilePruneJob;
+import app.jobs.JobScheduler;
+import app.jobs.SimpleFilePruneJob;
 
 /**
  * Application Lifecycle Listener implementation class ExampleContextListener

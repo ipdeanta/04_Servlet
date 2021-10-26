@@ -1,4 +1,4 @@
-package jobs;
+package app.jobs;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
