@@ -1,4 +1,4 @@
-package servlet;
+package app.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * 
  * El servlet esta mapeado con anotaciones
  */
-@WebServlet("/EclipseServlet")
+@WebServlet(name = "EclipseServlet", urlPatterns = "/EclipseServlet")
 public class EclipseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -94,12 +94,15 @@ public class EclipseServlet extends HttpServlet {
 		
 // 		- directa (reenvia la peticion), solo dentro de la aplicacion, GET o POST segun sea la peticion original, permite el paso de datos como atributos
 //		request.setAttribute("otro", "valor insertado desde EclipseServlet");
-//		request.getRequestDispatcher("/NetbeansServlet").forward(request, response);
+//		request.getRequestDispatcher("/NetbeansServlet").forward(request, response); // la respuesta la proporciona el servlet al que se reenvía
+//		request.getRequestDispatcher("/NetbeansServlet").include(request, response); // la respuesta la manda aquí, y se incluye en la de éste
 		
 		System.out.println("param1=" + request.getParameter("param1"));
+		System.out.println("filterAttribute=" + request.getAttribute("filterAttribute"));
 		
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		Map<String, String[]> parameterMap = request.getParameterMap();
+		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		printResponse(out, parameterMap);
 		out.close();
@@ -120,7 +123,7 @@ public class EclipseServlet extends HttpServlet {
 		res.println("<html>");
 		res.println("<title>Servlet de pruebas</title>");
 		res.println("<body>");
-		res.println("<div>Hola Mundo (desde " + this.getClass().getSimpleName() +")</div>");
+		res.println("<div>Hola Mundo 2 (desde " + this.getClass().getSimpleName() +")</div>");
 		parameterMap.keySet().forEach(x -> res.println("<div>Par&aacute;metro " + x + " = " + String.join(",", parameterMap.get(x)) +"</div>"));
 		res.println("</body>");
 		res.println("</html>");
