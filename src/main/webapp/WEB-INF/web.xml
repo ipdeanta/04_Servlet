@@ -6,6 +6,12 @@
 	<display-name>03_ServletTest</display-name>
 	
 	<!-- ServletMapping -->
+	<context-param>
+	    <param-name>FilenameFromWeb</param-name>  
+	    <param-value>example2.txt</param-value>  
+	</context-param> 
+	
+	<!-- ServletMapping -->
 	<servlet>
         <servlet-name>NetbeansServlet</servlet-name>
         <servlet-class>servlet.NetbeansServlet</servlet-class>
